@@ -38,7 +38,7 @@ export default class TopNav extends React.Component {
                 <NavLink href="#">Track Workout</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Progress Pics</NavLink>
+                <NavLink href="#">Progress Shots</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="#">About</NavLink>

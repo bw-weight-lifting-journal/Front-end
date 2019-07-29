@@ -8,12 +8,30 @@
     margin-left: 2rem;
   }
 
+  .ml-auto {
+    @media (max-width: 767px) {
+      margin-top: 1rem;
+    }
+  }
+
+  .navbar-toggler {
+    margin-right: 2rem;
+  }
+
   .btn {
     font-size: 2rem;
     border-radius: 6px;
     margin-right: 2rem;
-    padding: 0.75rem 1.5rem;
-    max-width: 10.73rem;
+    padding: 0.75rem 1rem;
+    max-width: 11rem;
+
+    @media (max-width: 767px) {
+      margin-top: 1rem;
+      margin-left: 2rem;
+      font-size: 1.5rem;
+      padding: 0.25rem;
+    }
+
   }
 
   .btn:first-child {
@@ -35,7 +53,13 @@
 
     .nav-link {
       color: black;
-      margin-left: 1rem;
+      margin-left: 0.75rem;
+
+      @media (max-width: 767px) {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        margin-left: 2rem;
+      }
     }
   }
 }
