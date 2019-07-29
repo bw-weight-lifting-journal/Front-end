@@ -1,0 +1,41 @@
+.navbar {
+  font-size: 2rem;
+  padding: 3rem 0;
+
+  .navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 2rem;
+  }
+
+  .btn {
+    font-size: 2rem;
+    border-radius: 6px;
+    margin-right: 2rem;
+    padding: 0.75rem 1.5rem;
+    max-width: 10.73rem;
+  }
+
+  .btn:first-child {
+    background: rgb(0, 100, 179);
+    border: none;
+  }
+
+  .btn:last-child {
+    background: white;
+    color: rgb(0, 100, 179);
+    border-color: rgb(0, 100, 179);
+  }
+
+  .mr-auto {
+    margin-left: 1rem;
+  }
+
+  .navbar-nav {
+
+    .nav-link {
+      color: black;
+      margin-left: 1rem;
+    }
+  }
+}
