@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 const Form = (props) => {
     const {setPeople} = props;
-    const [person, setPerson] = useState ({name:"", email:""});
+    const [person, setPerson] = useState ({Username:"", Password:""});
     const handleChange = event =>{
         setPerson({...person, [event.target.name]: event.target.value})
     };
@@ -10,8 +10,7 @@ const Form = (props) => {
     const handleSubmit = event => {
      event.preventDefault();
      setPeople(people => [...people, person]);
-     setPerson({name:"", email:""});
-     console.log(person);
+     setPerson({Username:"", Password:"", });
     };
 
     return(
@@ -25,7 +24,8 @@ const Form = (props) => {
              value={person.email}
              name="email"
              onChange={handleChange}/>
-          <button type="submit">Sign Up</button>
+          <button type="submit">SIGNUP</button>
+          <button type="LOGIN">LOGIN</button>
         </form>
     );
 };
