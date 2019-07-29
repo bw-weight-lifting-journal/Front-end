@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.scss';
-import { Button } from 'reactstrap';
+import TopNav from './components/navmenus/Nav';
+import Footer from './components/navmenus/Footer';
 
 function App() {
   return (
     <div className="App">
-      <Button color="danger">Danger!</Button>
+      <TopNav />
+      <Footer />
     </div>
   );
 }
