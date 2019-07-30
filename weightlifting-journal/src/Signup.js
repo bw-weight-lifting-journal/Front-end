@@ -1,44 +1,43 @@
 import React from 'react';
 import { withFormik, Form, Field } from 'formik'
 import axios from 'axios'
+import  './components/Signupstyles.css'
 
 const Signup = () => {
     return(
-        <div>
+        <div className='header'>
             <h1>Weight Lifting Journal</h1>
             <Form>
+                <div className="Fields">
                 <label>First Name</label>
-                <Field 
-                    placeholder='youremail@user.com' 
+                <Field className='inputs' 
                     name='firstName'
                     type='text'
                 />
                 <label>Last Name</label>
-                <Field 
-                    placeholder='youremail@user.com' 
+                <Field className='inputs'
                     name='lastName'
                     type='text'
                 />
                 <label>Username</label>
-                <Field 
-                    placeholder='youremail@user.com' 
+                <Field className='inputs'
                     name='userName'
                     type='text'
                 />
                 <label>Email</label>
-                <Field 
-                    placeholder='Password'
+                <Field className='inputs'
                     name="email"
                     type='text'
                 />
                 <label>Password</label>
-                <Field 
-                    placeholder='Password'
+                <Field className='inputs'
                     name="password"
                     type='password'
                 />
-                <button type="submit">SIGNUP</button>
+                    </div>
+                <button className='buttons' type="submit">SIGNUP</button>
             </Form>
+            <img src="https://i.ibb.co/LYMJt95/alora-griffiths-PLm-A2-IY8z3-U-unsplash-1.jpg" alt="alora-griffiths-PLm-A2-IY8z3-U-unsplash-1" border="0"></img>
         </div>
     );
 };

@@ -2,10 +2,10 @@ import React from 'react';
 import './App.scss';
 
 import TopNav from './components/navmenus/Nav';
-import HomePage from './components/HomePage';
+// import HomePage from './components/HomePage';
 import Footer from './components/navmenus/Footer';
-import NewWorkoutForm from './components/NewWorkoutForm';
-import Dashboard from './components/Dashboard';
+// import NewWorkoutForm from './components/NewWorkoutForm';
+// import Dashboard from './components/Dashboard';
 import Signup from './Signup.js';
 import Login from './Login';
 
@@ -16,7 +16,7 @@ function App() {
       <TopNav />
       {/* <NewWorkoutForm /> */}
       {/* <Dashboard /> */}
-      {/* <Signup /> */}
+      <Signup />
       <Login />
       <Footer />
     </div>

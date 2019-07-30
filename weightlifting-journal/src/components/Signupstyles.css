@@ -1,0 +1,57 @@
+div{
+    background-color: blue;
+    text-align: center;
+    margin: 0 auto 0 auto
+}
+
+.Fields{
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    padding-bottom: 20px;
+    color: azure
+}
+
+img{
+    background-image: url(https://i.ibb.co/LYMJt95/alora-griffiths-PLm-A2-IY8z3-U-unsplash-1.jpg); 
+    width: 1000px;
+    height: 1000px;
+    background-size: inherit;
+    background-repeat: repeat;
+    background-attachment: cover;
+  }
+
+  h1{
+      color: whitesmoke;
+      text-shadow: rgb(192, 233, 11) 5px 0 10px;
+      text-emphasis: bold;
+      font-size: 48px;
+      font-weight: bold;
+  }
+
+  .inputs{
+    border-radius:5px;
+    border-color: gold;
+  }
+
+  .Fields-login{
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius:5px;
+    font-size: 15px;
+    padding-bottom: 20px;
+    color: azure;
+  }
+
+  .buttons{
+      width: 100px;
+      height: 30px;
+      color: dodgerblue;
+      border-radius:5px;
+      border-color: gold;
+      border: 2px solid;
+
+  }
+

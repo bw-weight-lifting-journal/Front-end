@@ -5,17 +5,21 @@ import axios from 'axios'
 function Login () {
     return (
         <Form>
+          <div className="Fields-login"> 
             <label htmlFor="email">UserName:</label>
-            <Field
+            
+            <Field className='inputs'
                 name='userName'
                 type='text'
             />
             <label htmlFor="password">Password:</label>
-            <Field
+            <Field className='inputs'
                 name='password'
                 type='password'
             />
-            <button>Login</button>
+            </div>
+            <button className='buttons'>Login</button>
+            
         </Form>
     )
 }
