@@ -8,6 +8,7 @@ function Dashboard() {
     return(
       <>
       <TopNav />
+      <div className="siteContainer">
         <div className='dashboard-page'>
             <h1 className='title' >Welcome User!</h1>
             <section className='dashboard'>
@@ -23,6 +24,7 @@ function Dashboard() {
                     </button>
                 </div>
             </section>
+        </div>
         </div>
       <Footer />
       </>

@@ -20,6 +20,7 @@ class Login extends Component {
         return (
           <>
           <TopNav />
+          <div className="siteContainer">
             <form>
             <label htmlFor="email">UserName:</label>
             <input
@@ -37,6 +38,7 @@ class Login extends Component {
             />
             <button>Login</button>
         </form>
+        </div>
         <Footer />
         </>
         )

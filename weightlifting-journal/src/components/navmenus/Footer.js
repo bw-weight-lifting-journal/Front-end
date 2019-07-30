@@ -9,15 +9,15 @@ import './Footer.scss';
 
 function Footer() {
   return (
-    <div>
-      <Navbar className="ftr" color="light" light expand="md">
+    <>
+      <Navbar className="ftr fixed-" color="light" light expand="md">
         <Nav className="ml-auto" navbar>
             <NavItem>
               <span className="footerLink">Copyright © 2019</span>
             </NavItem>
           </Nav>
       </Navbar>
-    </div>
+    </>
   );
 }
 

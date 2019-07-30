@@ -28,7 +28,7 @@ export default class TopNav extends React.Component {
   }
   render() {
     return (
-      <div>
+      <>
         <Navbar color="light" light expand="md">
           <WebsiteNavLink to="/">
           <div className="navbar-brand">forLife Fitness</div>
@@ -61,7 +61,7 @@ export default class TopNav extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-      </div>
+      </>
     );
   }
 }

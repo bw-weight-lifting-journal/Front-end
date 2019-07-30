@@ -9,6 +9,7 @@ function NewWorkoutForm() {
     return(
       <>
       <TopNav />
+      <div className="siteContainer">
         <div className='new-workout-page'>
             <h1 className='title'>New Workout</h1>
             <Form className='workout-form'>
@@ -75,6 +76,7 @@ function NewWorkoutForm() {
                     <button type='submit' className='add-btn'>Add</button>
                 </p>
             </Form>
+        </div>
         </div>
       <Footer />
       </>

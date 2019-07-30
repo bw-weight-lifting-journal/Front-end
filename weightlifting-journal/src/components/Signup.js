@@ -19,7 +19,7 @@ const Signup = (props) => {
     return(
       <>
       <TopNav />
-        <div>
+        <div className="siteContainer">
         <h1>Weight Lifting Journal</h1>
         <form onSubmit={handleSubmit}>
         <label htmlFor='username'>Username</label>
