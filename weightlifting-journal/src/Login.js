@@ -32,7 +32,10 @@ const FormikLogin = withFormik({
         console.log(values)
         axios
             .post('https://weightlifingjournalbackend.herokuapp.com/api/auth/login', values)
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                localStorage.setItem('token', res.data.Token)
+            })
             .catch(err => console.log(err))
     }
 
