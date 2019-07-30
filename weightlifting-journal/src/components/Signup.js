@@ -1,5 +1,6 @@
-
 import React, {useState} from 'react';
+import TopNav from './navmenus/Nav';
+import Footer from './navmenus/Footer';
 
 
 const Signup = (props) => {
@@ -16,6 +17,8 @@ const Signup = (props) => {
     };
 
     return(
+      <>
+      <TopNav />
         <div>
         <h1>Weight Lifting Journal</h1>
         <form onSubmit={handleSubmit}>
@@ -38,6 +41,8 @@ const Signup = (props) => {
           <button type="submit">SIGNUP</button>
         </form>
         </div>
+        <Footer />
+        </>
     );
 };
 

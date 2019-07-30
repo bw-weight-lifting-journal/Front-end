@@ -1,10 +1,14 @@
 import React from 'react'
+import TopNav from './navmenus/Nav';
+import Footer from './navmenus/Footer';
 import { withFormik, Form, Field } from 'formik'
 
 import './NewWorkoutForm.scss'
 
 function NewWorkoutForm() {
     return(
+      <>
+      <TopNav />
         <div className='new-workout-page'>
             <h1 className='title'>New Workout</h1>
             <Form className='workout-form'>
@@ -72,6 +76,8 @@ function NewWorkoutForm() {
                 </p>
             </Form>
         </div>
+      <Footer />
+      </>
     )
 }
 

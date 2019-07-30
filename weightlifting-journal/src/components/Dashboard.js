@@ -1,8 +1,12 @@
 import React from 'react'
+import TopNav from './navmenus/Nav';
+import Footer from './navmenus/Footer';
 import './Dashboard.scss'
 
 function Dashboard() {
     return(
+      <>
+      <TopNav />
         <div className='dashboard-page'>
             <h1 className='title' >Welcome User!</h1>
             <section className='dashboard'>
@@ -15,6 +19,8 @@ function Dashboard() {
                 </div>
             </section>
         </div>
+      <Footer />
+      </>
     )
 }
 

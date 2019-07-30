@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import TopNav from './navmenus/Nav';
+import Footer from './navmenus/Footer';
 
 
 class Login extends Component {
@@ -16,6 +18,8 @@ class Login extends Component {
 
     render(){
         return (
+          <>
+          <TopNav />
             <form>
             <label htmlFor="email">UserName:</label>
             <input
@@ -33,6 +37,8 @@ class Login extends Component {
             />
             <button>Login</button>
         </form>
+        <Footer />
+        </>
         )
     }
         
