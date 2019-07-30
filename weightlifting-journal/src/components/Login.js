@@ -1,37 +1,17 @@
-<<<<<<< HEAD:weightlifting-journal/src/components/Login.js
-import React, {Component} from 'react';
+import React from 'react';
 import TopNav from './navmenus/Nav';
 import Footer from './navmenus/Footer';
 
 
-class Login extends Component {
-    constructor(props){
-        super(props);
-        this.state= {email:'', password:''};
-        this.handleChange = this.handleChange.bind(this)
-    }
 
-    handleChange(evt){
-        this.setState({
-          [evt.target.email]: evt.target.value  
-        })
-    }
-
-    render(){
-        return (
-          <>
-          <TopNav />
-          <div className="siteContainer">
-            <form>
-=======
-import React from 'react';
 import { withFormik, Form, Field } from 'formik'
 import axios from 'axios'
 
 function Login () {
     return (
+      <>
+        <TopNav />
         <Form>
->>>>>>> 1a5d5fd9bcd95d856ea2e9dacf3ed558ce18968a:weightlifting-journal/src/Login.js
             <label htmlFor="email">UserName:</label>
             <Field
                 name='userName'
@@ -43,18 +23,11 @@ function Login () {
                 type='password'
             />
             <button>Login</button>
-<<<<<<< HEAD:weightlifting-journal/src/components/Login.js
-        </form>
-        </div>
-        <Footer />
-        </>
-        )
-    }
-=======
         </Form>
+        <Footer />
+      </>
     )
 }
->>>>>>> 1a5d5fd9bcd95d856ea2e9dacf3ed558ce18968a:weightlifting-journal/src/Login.js
         
 const FormikLogin = withFormik({
     mapPropsToValues() {
