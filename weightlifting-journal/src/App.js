@@ -15,9 +15,9 @@ function App() {
       {/* <HomePage /> */}
       <TopNav />
       {/* <NewWorkoutForm /> */}
-      {/* <Dashboard /> */}
-      {/* <Signup /> */}
-      <Login />
+      <Dashboard />
+      <Signup /> 
+      <Login /> 
       <Footer />
     </div>
   );

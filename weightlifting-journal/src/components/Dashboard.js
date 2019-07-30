@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Dashboard.scss'
+import axios from 'axios'
+import { axiosWithAuth } from '../axiosWithAuth';
 
 function Dashboard() {
+
+    const [userData, setUserData] = useState();
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if(token)
+        console.log(token)
+        axios
+            .get('https://weightlifingjournalbackend.herokuapp.com/api/users/1', {
+                headers: {
+                    'token': `${token}`
+                }
+            })
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+    }, []);
+
     return(
         <div className='dashboard-page'>
             <h1 className='title' >Welcome User!</h1>
