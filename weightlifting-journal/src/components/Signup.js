@@ -1,3 +1,4 @@
+<<<<<<< HEAD:weightlifting-journal/src/components/Signup.js
 import React, {useState} from 'react';
 import TopNav from './navmenus/Nav';
 import Footer from './navmenus/Footer';
@@ -40,54 +41,74 @@ const Signup = (props) => {
              onChange={handleChange}/>
           <button type="submit">SIGNUP</button>
         </form>
+=======
+import React from 'react';
+import { withFormik, Form, Field } from 'formik'
+import axios from 'axios'
+
+const Signup = () => {
+    return(
+        <div>
+            <h1>Weight Lifting Journal</h1>
+            <Form>
+                <label>First Name</label>
+                <Field 
+                    placeholder='youremail@user.com' 
+                    name='firstName'
+                    type='text'
+                />
+                <label>Last Name</label>
+                <Field 
+                    placeholder='youremail@user.com' 
+                    name='lastName'
+                    type='text'
+                />
+                <label>Username</label>
+                <Field 
+                    placeholder='youremail@user.com' 
+                    name='userName'
+                    type='text'
+                />
+                <label>Email</label>
+                <Field 
+                    placeholder='Password'
+                    name="email"
+                    type='text'
+                />
+                <label>Password</label>
+                <Field 
+                    placeholder='Password'
+                    name="password"
+                    type='password'
+                />
+                <button type="submit">SIGNUP</button>
+            </Form>
+>>>>>>> 1a5d5fd9bcd95d856ea2e9dacf3ed558ce18968a:weightlifting-journal/src/Signup.js
         </div>
         <Footer />
         </>
     );
 };
 
-export default Signup;
+const FormikSignup = withFormik({
+    mapPropsToValues() {
+        return {
+            firstName: '',
+            lastName: '',
+            userName: '',
+            email: '',
+            password: ''
+        }
+    },
 
+    handleSubmit(values) {
+        console.log(values)
+        axios
+        .post('https://weightlifingjournalbackend.herokuapp.com/api/auth/register', values)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }
 
+})(Signup)
 
-
-
-
-
-// import React, {Component} from "react";
-
-// class Signup extends Component {
-//   constructor(props) {
-//       super(props);
-//       this.state ={username:"", password:""};
-//   }
-
-//   handleChange(evt){
-//       this.setState({username:evt.target.value});
-//       this.setState({password:evt.target.value});
-//       this.handleChange = this.handleChange.bind(this);
-//       this.handleSubmit = this.handleSubmit.bind(this);
-//   }
-//   handleSubmit(evt){
-//     alert(`Entered: ${this.state.username}`);
-//     this.setState({username:""});
-//     alert(`Entered: ${this.state.password}`);
-//     this.setState({password:""});
-//   }
-
-//   render() {
-//       return (
-//           <div>
-//               <h1>Weight Lifting Journal </h1>
-//               <form onSubmit= {this.handleSubmit}>
-//                   <input type='text' value={this.state.username} onChange= {this.handleChange}/>
-//                   <input type='text' value={this.state.password} onChange= {this.handleChange}/>
-//                   <button>SIGNUP</button>
-//                   <button>LOGIN</button>
-//               </form>
-//           </div>
-//       );
-//   }
-// }
-
-// export default Signup;
+export default FormikSignup;

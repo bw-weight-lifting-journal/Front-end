@@ -1,3 +1,4 @@
+<<<<<<< HEAD:weightlifting-journal/src/components/Login.js
 import React, {Component} from 'react';
 import TopNav from './navmenus/Nav';
 import Footer from './navmenus/Footer';
@@ -22,28 +23,58 @@ class Login extends Component {
           <TopNav />
           <div className="siteContainer">
             <form>
+=======
+import React from 'react';
+import { withFormik, Form, Field } from 'formik'
+import axios from 'axios'
+
+function Login () {
+    return (
+        <Form>
+>>>>>>> 1a5d5fd9bcd95d856ea2e9dacf3ed558ce18968a:weightlifting-journal/src/Login.js
             <label htmlFor="email">UserName:</label>
-            <input
-                id="email"
-                email="email"
-                value={this.state.email}
-                onChange={this.handleChange}
+            <Field
+                name='userName'
+                type='text'
             />
             <label htmlFor="password">Password:</label>
-            <input
-                id="password"
-                password="password"
-                value={this.state.password}
-                onChange={this.handleChange}
+            <Field
+                name='password'
+                type='password'
             />
             <button>Login</button>
+<<<<<<< HEAD:weightlifting-journal/src/components/Login.js
         </form>
         </div>
         <Footer />
         </>
         )
     }
+=======
+        </Form>
+    )
+}
+>>>>>>> 1a5d5fd9bcd95d856ea2e9dacf3ed558ce18968a:weightlifting-journal/src/Login.js
         
+const FormikLogin = withFormik({
+    mapPropsToValues() {
+        return {
+            userName: '',
+            password: ''
+        }
+    },
+
+    handleSubmit(values) {
+        console.log(values)
+        axios
+            .post('https://weightlifingjournalbackend.herokuapp.com/api/auth/login', values)
+            .then(res => {
+                console.log(res)
+                localStorage.setItem('token', res.data.Token)
+            })
+            .catch(err => console.log(err))
     }
 
-export default Login;
+})(Login)
+
+export default FormikLogin;
