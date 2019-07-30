@@ -1,41 +1,41 @@
-import React, {Component} from 'react';
+import React from 'react';
+import { withFormik, Form, Field } from 'formik'
+import axios from 'axios'
 
-
-class Login extends Component {
-    constructor(props){
-        super(props);
-        this.state= {email:'', password:''};
-        this.handleChange = this.handleChange.bind(this)
-    }
-
-    handleChange(evt){
-        this.setState({
-          [evt.target.email]: evt.target.value  
-        })
-    }
-
-    render(){
-        return (
-            <form>
+function Login () {
+    return (
+        <Form>
             <label htmlFor="email">UserName:</label>
-            <input
-                id="email"
-                email="email"
-                value={this.state.email}
-                onChange={this.handleChange}
+            <Field
+                name='userName'
+                type='text'
             />
             <label htmlFor="password">Password:</label>
-            <input
-                id="password"
-                password="password"
-                value={this.state.password}
-                onChange={this.handleChange}
+            <Field
+                name='password'
+                type='password'
             />
             <button>Login</button>
-        </form>
-        )
-    }
+        </Form>
+    )
+}
         
+const FormikLogin = withFormik({
+    mapPropsToValues() {
+        return {
+            userName: '',
+            password: ''
+        }
+    },
+
+    handleSubmit(values) {
+        console.log(values)
+        axios
+            .post('https://weightlifingjournalbackend.herokuapp.com/api/auth/login', values)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
     }
 
-export default Login;
+})(Login)
+
+export default FormikLogin;

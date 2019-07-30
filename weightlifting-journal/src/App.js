@@ -16,8 +16,8 @@ function App() {
       <TopNav />
       {/* <NewWorkoutForm /> */}
       {/* <Dashboard /> */}
-      {/* <Signup /> */}
-      <Login />
+      <Signup />
+      {/* <Login /> */}
       <Footer />
     </div>
   );
