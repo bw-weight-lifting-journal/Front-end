@@ -11,8 +11,8 @@ import './Footer.scss';
 function Footer() {
   return (
     <div>
-      <Navbar color="light" light expand="md" fixed="bottom">
-        <Nav className="mr-auto ftr" navbar>
+      <Navbar className="ftr" color="light" light expand="md">
+        <Nav className="mr-auto" navbar>
           <NavItem>
             <NavLink className="footerLink" href="#">Terms and Conditions</NavLink>
           </NavItem>
