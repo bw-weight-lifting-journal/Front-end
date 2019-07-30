@@ -1,24 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AppRouter from './components/Router.js';
 import './App.scss';
 
-import TopNav from './components/navmenus/Nav';
-import HomePage from './components/HomePage';
-import Footer from './components/navmenus/Footer';
-import NewWorkoutForm from './components/NewWorkoutForm';
-import Dashboard from './components/Dashboard';
-import Signup from './Signup.js';
-import Login from './Login';
-
 function App() {
+  
+  useEffect(() => {
+    fetch('https://weightlifingjournalbackend.herokuapp.com/api/users')
+      .then(res => res.json())
+      .then(users => console.log(users))
+
+  }, [])
+
   return (
     <div className="App">
-      {/* <HomePage /> */}
-      <TopNav />
-      {/* <NewWorkoutForm /> */}
-      {/* <Dashboard /> */}
-      {/* <Signup /> */}
-      <Login />
-      <Footer />
+      <AppRouter />
     </div>
   );
 }

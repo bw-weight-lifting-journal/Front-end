@@ -16,7 +16,7 @@ const Testimonials = (props) => {
       </article>
       <Container fluid className="testimonials">
       <Media>
-        <Media left href="#">
+        <Media left>
           <img className="avatar" src="https://i.ibb.co/PTC6hQy/jane-headshot.png" alt="Generic placeholder" />
         </Media>
         <Media body>
@@ -24,7 +24,7 @@ const Testimonials = (props) => {
         </Media>
     </Media>
     <Media>
-        <Media left href="#">
+        <Media left>
           <img className="avatar" src="https://i.ibb.co/Sw4V7Jk/brian-headshot.png" alt="Generic placeholder" />
         </Media>
         <Media body>
@@ -32,7 +32,7 @@ const Testimonials = (props) => {
         </Media>
     </Media>
     <Media>
-        <Media left href="#">
+        <Media left>
           <img className="avatar" src="https://i.ibb.co/ygjw1ps/suze-headshot.png" alt="Generic placeholder" />
         </Media>
         <Media body>
@@ -40,7 +40,7 @@ const Testimonials = (props) => {
         </Media>
     </Media>
     <Media>
-        <Media left href="#">
+        <Media left>
           <img className="avatar" src="https://i.ibb.co/5c6dfgj/lee-headshot.png" alt="Generic placeholder" />
         </Media>
         <Media body>

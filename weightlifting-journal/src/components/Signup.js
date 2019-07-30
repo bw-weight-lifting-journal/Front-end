@@ -1,9 +1,15 @@
 import React from 'react';
+import TopNav from './navmenus/Nav';
+import Footer from './navmenus/Footer';
+
+
 import { withFormik, Form, Field } from 'formik'
 import axios from 'axios'
 
 const Signup = () => {
     return(
+      <>
+      <TopNav />
         <div>
             <h1>Weight Lifting Journal</h1>
             <Form>
@@ -40,6 +46,8 @@ const Signup = () => {
                 <button type="submit">SIGNUP</button>
             </Form>
         </div>
+        <Footer />
+        </>
     );
 };
 

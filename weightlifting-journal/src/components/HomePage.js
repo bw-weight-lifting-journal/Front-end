@@ -9,15 +9,17 @@ import HeroImage from './contentcontainers/HeroImage';
 
 function HomePage() {
   return (
-    <div className="App">
+    <>
       <TopNav />
+      <div className="siteContainer">
       <HeroImage />
       <MainButtonContainer />
       <MiddleContent />
       <Testimonials />
       <BottomCTA />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

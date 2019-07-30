@@ -1,9 +1,16 @@
 import React from 'react';
+import TopNav from './navmenus/Nav';
+import Footer from './navmenus/Footer';
+
+
+
 import { withFormik, Form, Field } from 'formik'
 import axios from 'axios'
 
 function Login () {
     return (
+      <>
+        <TopNav />
         <Form>
             <label htmlFor="email">UserName:</label>
             <Field
@@ -17,6 +24,8 @@ function Login () {
             />
             <button>Login</button>
         </Form>
+        <Footer />
+      </>
     )
 }
         

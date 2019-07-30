@@ -3,12 +3,12 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   Button
  } from 'reactstrap';
+
+ import { NavLink as WebsiteNavLink } from "react-router-dom";
 
  import './Nav.scss';
 
@@ -28,29 +28,40 @@ export default class TopNav extends React.Component {
   }
   render() {
     return (
-      <div>
+      <>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">forLife Fitness</NavbarBrand>
+          <WebsiteNavLink to="/">
+          <div className="navbar-brand">forLife Fitness</div>
+          </WebsiteNavLink>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink href="#">Track Workout</NavLink>
+                <WebsiteNavLink className="nav-link" to="/dashboard">
+                Track Workout
+                </WebsiteNavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Progress Shots</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#">About</NavLink>
+                <WebsiteNavLink className="nav-link" to="/dashboard">
+                Progress Shots
+                </WebsiteNavLink>
               </NavItem>
             </Nav>
             <Nav className="ml-auto" navbar>
-              <Button>Join Now</Button>
-              <Button>Sign In</Button>
+              <Button>
+              <WebsiteNavLink className="jointext" to="/signup">
+                Join Now
+              </WebsiteNavLink>
+              </Button>
+              <Button>
+              <WebsiteNavLink className="signintext" to="/login">
+                Sign In
+              </WebsiteNavLink>
+              </Button>
             </Nav>
           </Collapse>
         </Navbar>
-      </div>
+      </>
     );
   }
 }
