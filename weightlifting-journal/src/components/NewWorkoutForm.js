@@ -58,8 +58,18 @@ function NewWorkoutForm() {
                         name='workout'
                     />
                 </label>
-                <button type='reset' className='clear-btn'>Clear</button>
-                <button type='submit' className='add-btn'>Add</button>
+                <label className='form-label'>
+                    Type: <br />
+                    <Field 
+                        className='type'
+                        type='text'
+                        name='type'
+                    />
+                </label>
+                <p className='buttons'>
+                    <button type='reset' className='clear-btn'>Clear</button>
+                    <button type='submit' className='add-btn'>Add</button>
+                </p>
             </Form>
         </div>
     )
@@ -73,7 +83,8 @@ const FormikNewWorkoutForm = withFormik({
             weight: '',
             difficulty: '',
             date: '',
-            workout: ''
+            workout: '',
+            type: ''
         }
     },
 
