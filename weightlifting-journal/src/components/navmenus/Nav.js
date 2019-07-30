@@ -3,10 +3,8 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  // NavLink,
   Button
  } from 'reactstrap';
 
@@ -32,7 +30,9 @@ export default class TopNav extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">forLife Fitness</NavbarBrand>
+          <WebsiteNavLink to="/">
+          <div className="navbar-brand">forLife Fitness</div>
+          </WebsiteNavLink>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="mr-auto" navbar>

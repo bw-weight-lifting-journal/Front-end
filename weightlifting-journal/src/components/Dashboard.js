@@ -1,6 +1,7 @@
 import React from 'react'
 import TopNav from './navmenus/Nav';
 import Footer from './navmenus/Footer';
+import { Link as WorkoutLink } from "react-router-dom";
 import './Dashboard.scss'
 
 function Dashboard() {
@@ -15,7 +16,11 @@ function Dashboard() {
                     <h2 className='workouts'>Push Day</h2>
                 </div>
                 <div className='btn-container'>
-                    <button className='new-workout-btn'>New Workout</button>
+                    <button className='new-workout-btn'>
+                    <WorkoutLink className='new-workout-text'to="/enterworkout">
+                    New Workout
+                    </WorkoutLink>
+                    </button>
                 </div>
             </section>
         </div>

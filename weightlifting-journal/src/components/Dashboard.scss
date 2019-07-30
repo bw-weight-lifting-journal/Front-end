@@ -40,6 +40,16 @@
             padding: 15px 70px;
             background-color: #1F7EBF;
             color: white;
+
+            .new-workout-text{
+              color: white;
+            }
+            .new-workout-text:hover{
+              text-decoration: none;
+            }
+        }
+        .new-workout-btn:hover{
+          background-color: rgba(31, 126, 191, 0.8)
         }
     }
 
