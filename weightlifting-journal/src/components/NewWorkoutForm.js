@@ -1,11 +1,31 @@
-import React from 'react'
+import React,{ useState, useEffect } from 'react'
 import TopNav from './navmenus/Nav';
 import Footer from './navmenus/Footer';
 import { withFormik, Form, Field } from 'formik'
+import {axiosWithAuth }from '../axiosWithAuth'
 
 import './NewWorkoutForm.scss'
 
 function NewWorkoutForm() {
+
+    const [userData, setUserData] = useState();
+    const [workoutType, setWorkoutType] = useState('arms');
+
+    console.log('USER DATA', userData)
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if(token)
+        console.log(token)
+        axiosWithAuth()
+            .get(`https://weightlifingjournalbackend.herokuapp.com/api/exercises/${workoutType}`)
+            .then(res => {
+                console.log(res)
+                setUserData(res.data)
+            })
+            .catch(err => console.log(err))
+    }, [ workoutType ]);
+
     return(
       <>
       <TopNav />
@@ -58,18 +78,24 @@ function NewWorkoutForm() {
                 <label className='form-label'>
                     Workout: <br />
                     <Field 
+                        component='select'
                         className='workout'
                         type='text'
                         name='workout'
-                    />
+                    >
+                        {!userData ? null : userData.map(user => <option>{user.exerciseName}</option>)}
+                    </Field>
                 </label>
                 <label className='form-label'>
                     Type: <br />
-                    <Field 
-                        className='type'
-                        type='text'
-                        name='type'
-                    />
+                    <Field onChange={(e) => setWorkoutType(e.target.value.toLowerCase())} component='select' name='type' className='difficulty'>
+                        <option>Arms</option>
+                        <option>Shoulders</option>
+                        <option>Back</option>
+                        <option>Chest</option>
+                        <option>Legs</option>
+                        <option>Core</option>
+                    </Field>
                 </label>
                 <p className='buttons'>
                     <button type='reset' className='clear-btn'>Clear</button>
