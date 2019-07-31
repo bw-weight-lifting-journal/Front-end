@@ -11,7 +11,6 @@ export default function AppRouter() {
     <>
     <Switch>
       <Route exact path='/' component={HomePage} />
-      <Route path='/enterworkout' component={NewWorkoutForm} />
       <Route path='/dashboard' component={Dashboard} />
       <Route path='/signup' component={Signup} />
       <Route path='/login' component={Login} />
