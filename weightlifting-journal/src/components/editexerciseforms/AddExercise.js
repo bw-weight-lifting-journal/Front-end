@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../../axiosWithAuth';
 
-function AddExercise() {
+function AddExercise(props) {
 
     const [workoutType, setWorkoutType] = useState('');
     const [newExercise, setNewExercise] = useState('')
@@ -15,7 +15,10 @@ function AddExercise() {
         console.log(exercise)
         axiosWithAuth()
             .post(`https://weightlifingjournalbackend.herokuapp.com/api/exercises/${workoutType}`, exercise)
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                props.history.push('/enterworkout')
+            })
             .catch(err => console.log(err))
     }
 

@@ -1,4 +1,5 @@
 import React,{ useState, useEffect } from 'react'
+import { Link as EditExercises } from 'react-router-dom'
 import TopNav from './navmenus/Nav';
 import Footer from './navmenus/Footer';
 import { withFormik, Form, Field } from 'formik'
@@ -91,7 +92,9 @@ function NewWorkoutForm() {
                         {!userData ? null : userData.map(user => <option key={user.id}>{user.exerciseName}</option>)}
                     </Field>
                 </label>
-                <button>Edit Exercises</button>
+                <EditExercises to='edit-exercise'>
+                    Edit Exercises
+                </EditExercises>
                 </label>
                 <p className='buttons'>
                     <button type='reset' className='clear-btn'>Clear</button>
@@ -114,7 +117,8 @@ const FormikNewWorkoutForm = withFormik({
             difficulty: '',
             date: '',
             exercise: '',
-            type: ''
+            type: '',
+            id: ''
         }
     },
 
