@@ -62,11 +62,14 @@ const FormikSignup = withFormik({
         }
     },
 
-    handleSubmit(values) {
+    handleSubmit: (values, formikBag) => {
         console.log(values)
         axios
         .post('https://weightlifingjournalbackend.herokuapp.com/api/auth/register', values)
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res)
+            formikBag.props.history.push('/login')
+        })
         .catch(err => console.log(err))
     }
 

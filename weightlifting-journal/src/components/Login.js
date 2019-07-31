@@ -3,7 +3,6 @@ import TopNav from './navmenus/Nav';
 import Footer from './navmenus/Footer';
 
 
-
 import { withFormik, Form, Field } from 'formik'
 import axios from 'axios'
 
@@ -37,13 +36,14 @@ const FormikLogin = withFormik({
         }
     },
 
-    handleSubmit(values) {
+    handleSubmit: (values, formikBag) => {
         console.log(values)
         axios
             .post('https://weightlifingjournalbackend.herokuapp.com/api/auth/login', values)
             .then(res => {
                 console.log(res)
                 localStorage.setItem('token', res.data.Token)
+                formikBag.props.history.push('./dashboard')
             })
             .catch(err => console.log(err))
     }
