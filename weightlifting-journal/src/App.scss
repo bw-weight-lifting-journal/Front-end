@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
 	list-style: none;
@@ -47,9 +47,17 @@ table {
 	border-spacing: 0;
 }
 html {
+  position: relative;
+  min-height: 100%;
   box-sizing: border-box;
   font-size: 62.5%
 }
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+.App {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
 }
