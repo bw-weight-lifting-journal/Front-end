@@ -2,7 +2,6 @@
   "name": "weightlifting-journal",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bw-weight-lifting-journal.github.io/Front-end",
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
@@ -24,8 +23,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
