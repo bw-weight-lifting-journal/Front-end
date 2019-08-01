@@ -1,4 +1,5 @@
 import React,{ useState, useEffect } from 'react'
+import { Link as EditExercises } from 'react-router-dom'
 import TopNav from './navmenus/Nav';
 import Footer from './navmenus/Footer';
 import { withFormik, Form, Field } from 'formik'
@@ -76,26 +77,24 @@ function NewWorkoutForm() {
                     />
                 </label>
                 <label className='form-label'>
-                    Workout: <br />
-                    <Field 
-                        component='select'
-                        className='workout'
-                        type='text'
-                        name='workout'
-                    >
-                        {!userData ? null : userData.map(user => <option>{user.exerciseName}</option>)}
-                    </Field>
-                </label>
-                <label className='form-label'>
                     Type: <br />
-                    <Field onChange={(e) => setWorkoutType(e.target.value.toLowerCase())} component='select' name='type' className='difficulty'>
+                    <select onChange={(e) => setWorkoutType(e.target.value.toLowerCase())} component='select' name='type' className='type'>
                         <option>Arms</option>
                         <option>Shoulders</option>
                         <option>Back</option>
                         <option>Chest</option>
                         <option>Legs</option>
                         <option>Core</option>
+                    </select>
+                <label className='form-label'>
+                    Exercise: <br />
+                    <Field component='select' className='workout' type='text' name='exercise'>
+                        {!userData ? null : userData.map(user => <option key={user.id}>{user.exerciseName}</option>)}
                     </Field>
+                </label>
+                <EditExercises to='edit-exercise'>
+                    Edit Exercises
+                </EditExercises>
                 </label>
                 <p className='buttons'>
                     <button type='reset' className='clear-btn'>Clear</button>
@@ -117,8 +116,9 @@ const FormikNewWorkoutForm = withFormik({
             weight: '',
             difficulty: '',
             date: '',
-            workout: '',
-            type: ''
+            exercise: '',
+            type: '',
+            id: ''
         }
     },
 
