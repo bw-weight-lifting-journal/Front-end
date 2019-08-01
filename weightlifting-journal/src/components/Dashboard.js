@@ -24,6 +24,7 @@ function Dashboard() {
   }
 
   const workoutData = exercisesInWorkout;
+  console.log(workoutData)
 
 
   return(
