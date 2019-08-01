@@ -1,14 +1,11 @@
 import React,{ useState, useEffect } from 'react'
 import {axiosWithAuth }from '../axiosWithAuth';
-import { Link as EditExercises } from 'react-router-dom'
 
 import './NewWorkoutForm.scss'
 
 function NewWorkoutForm(props) {
 
     const { workoutData, fillInWorkout, submitWorkout } = props;
-
-    console.log(workoutData)
   
     const [userData, setUserData] = useState();
     const [workoutType, setWorkoutType] = useState('arms');

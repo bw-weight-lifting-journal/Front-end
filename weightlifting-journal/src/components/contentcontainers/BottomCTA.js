@@ -6,9 +6,6 @@ import './BottomCTA.scss'
 const BottomCTA = (props) => {
   let tkn = localStorage.getItem('token');
 
-  const deleteTkn = event => {
-    localStorage.removeItem('token');
-  }
   return (
     <div>
       <Jumbotron fluid>
