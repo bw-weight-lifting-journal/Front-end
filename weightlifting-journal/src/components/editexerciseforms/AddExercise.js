@@ -17,7 +17,7 @@ function AddExercise(props) {
             .post(`https://weightlifingjournalbackend.herokuapp.com/api/exercises/${workoutType}`, exercise)
             .then(res => {
                 console.log(res)
-                props.history.push('/enterworkout')
+                // props.history.push('/enterworkout')
             })
             .catch(err => console.log(err))
     }

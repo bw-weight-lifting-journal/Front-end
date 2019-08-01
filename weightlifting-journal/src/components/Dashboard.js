@@ -4,6 +4,7 @@ import Footer from './navmenus/Footer';
 import WorkoutCard from './WorkoutCard';
 import NewWorkoutForm from './NewWorkoutForm'
 import './Dashboard.scss'
+import EditExerciseForm from './EditExerciseForm';
 
 function Dashboard() {
 
@@ -11,8 +12,8 @@ function Dashboard() {
   const [workout, setWorkout] = useState([])
   const [exercisesInWorkout, setExercisesInWorkout] = useState([])
 
-  console.log(exercisesInWorkout)
-  console.log(workout)
+  console.log('exercises in workout', exercisesInWorkout)
+  console.log('workout', workout)
 
   const fillInWorkout = work => {
     setExercisesInWorkout([...exercisesInWorkout, work])
@@ -33,7 +34,7 @@ function Dashboard() {
     <div className="siteContainer">
       <div className='dashboard-page'>
           <h1 className='title' >Welcome!</h1>
-          <NewWorkoutForm workoutData = {workoutData} fillInWorkout={fillInWorkout} submitWorkout={addWorkout}/>
+          <NewWorkoutForm workoutData = {workoutData} fillInWorkout={fillInWorkout} submitWorkout={addWorkout} />
           <section className='dashboard'>
               {workout.map(data =>
               <div key={Date.now()}className="cardContainer">
@@ -47,6 +48,7 @@ function Dashboard() {
               )}
           </section>
       </div>
+      <EditExerciseForm />
       </div>
     <Footer />
     </>

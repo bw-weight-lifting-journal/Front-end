@@ -27,7 +27,7 @@ function DeleteExercise(props) {
             .delete(`https://weightlifingjournalbackend.herokuapp.com/api/exercises/${exerciseType}/${exercise}`)
             .then(res => {
                 console.log(res)
-                props.history.push('/enterworkout')
+                // props.history.push('/enterworkout')
             })
             .catch(err => console.log(err))
     }

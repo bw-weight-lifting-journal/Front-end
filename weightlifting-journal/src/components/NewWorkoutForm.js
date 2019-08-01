@@ -52,7 +52,6 @@ function NewWorkoutForm(props) {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if(token)
-        // console.log(token)
         axiosWithAuth()
             .get(`https://weightlifingjournalbackend.herokuapp.com/api/exercises/${workoutType}`)
             .then(res => {
@@ -60,7 +59,6 @@ function NewWorkoutForm(props) {
             })
             .catch(err => console.log(err))
     }, [workoutType]);
-
 
 
     return(
@@ -155,6 +153,7 @@ function NewWorkoutForm(props) {
                     <button className='clear-btn' onClick={pushExercise}>Add Exercise</button>
                     {workoutData.length > 0 && <button className='add-btn' type='submit'>Submit Workout</button>}
                 </p>
+
             </form>
         </div>
         </div>
