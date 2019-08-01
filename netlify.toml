@@ -1,8 +1,6 @@
 [build]
-  command = "npm run build"
-  functions = "functions"
-  publish = "weightlifting-journal/build"
   base = 'weightlifting-journal'
+  publish = "weightlifting-journal/build"
 
   [[redirects]]
     from = "/*"
