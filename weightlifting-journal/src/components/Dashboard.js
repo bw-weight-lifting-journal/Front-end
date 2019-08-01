@@ -11,8 +11,6 @@ function Dashboard() {
   const [workout, setWorkout] = useState([])
   const [exercisesInWorkout, setExercisesInWorkout] = useState([])
 
-  console.log(exercisesInWorkout)
-  console.log(workout)
 
   const fillInWorkout = work => {
     setExercisesInWorkout([...exercisesInWorkout, work])
@@ -20,12 +18,13 @@ function Dashboard() {
 
   const addWorkout = work => {
     setWorkout([...workout, exercisesInWorkout])
+    localStorage.setItem("workouts", JSON.stringify([...workout, exercisesInWorkout]))
     setExercisesInWorkout([]);
   }
 
   const workoutData = exercisesInWorkout;
-  console.log(workoutData)
 
+  const workouts = localStorage.getItem("workouts");
 
   return(
     <>
@@ -35,8 +34,8 @@ function Dashboard() {
           <h1 className='title' >Welcome!</h1>
           <NewWorkoutForm workoutData = {workoutData} fillInWorkout={fillInWorkout} submitWorkout={addWorkout}/>
           <section className='dashboard'>
-              {workout.map(data =>
-              <div key={Date.now()}className="cardContainer">
+              {workouts && JSON.parse(workouts).map(data =>
+              <div key={data.map(d => d.id)}className="cardContainer">
               <h1 className="cardTitle">{data[0].date}</h1>
                 {data.map(nestedData =>
                   <WorkoutCard

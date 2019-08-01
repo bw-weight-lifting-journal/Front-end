@@ -1,6 +1,5 @@
 import React,{ useState, useEffect } from 'react'
 import {axiosWithAuth }from '../axiosWithAuth';
-import { Link as EditExercises } from 'react-router-dom'
 
 import './NewWorkoutForm.scss'
 
@@ -150,11 +149,14 @@ function NewWorkoutForm(props) {
                     />
                 </label>}
           
-                <p className='buttons'>
+                <div className='buttons'>
+                    <div className="exerciseCounter">Exercises in current workout:
+                    {workoutData.map(exercise => <div key={exercise.id}>{exercise.workout}</div>)}
+                    </div>
                     <button type='reset' className='clear-btn'>Clear</button>
                     <button className='clear-btn' onClick={pushExercise}>Add Exercise</button>
                     {workoutData.length > 0 && <button className='add-btn' type='submit'>Submit Workout</button>}
-                </p>
+                </div>
             </form>
         </div>
         </div>
