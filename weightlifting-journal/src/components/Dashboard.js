@@ -8,48 +8,48 @@ import './Dashboard.scss'
 function Dashboard() {
 
 
-    const [workout, setWorkout] = useState([])
-    const [exercisesInWorkout, setExercisesInWorkout] = useState([])
+  const [workout, setWorkout] = useState([])
+  const [exercisesInWorkout, setExercisesInWorkout] = useState([])
 
-    console.log(exercisesInWorkout)
-    console.log(workout)
+  console.log(exercisesInWorkout)
+  console.log(workout)
 
-    const fillInWorkout = work => {
-      setExercisesInWorkout([...exercisesInWorkout, work])
-    }
+  const fillInWorkout = work => {
+    setExercisesInWorkout([...exercisesInWorkout, work])
+  }
 
-    const addWorkout = work => {
-      setWorkout([...workout, exercisesInWorkout])
-      setExercisesInWorkout([]);
-    }
+  const addWorkout = work => {
+    setWorkout([...workout, exercisesInWorkout])
+    setExercisesInWorkout([]);
+  }
 
-    const workoutData = exercisesInWorkout;
+  const workoutData = exercisesInWorkout;
 
 
-    return(
-      <>
-      <TopNav />
-      <div className="siteContainer">
-        <div className='dashboard-page'>
-            <h1 className='title' >Welcome!</h1>
-            <NewWorkoutForm workoutData = {workoutData} fillInWorkout={fillInWorkout} submitWorkout={addWorkout}/>
-            <section className='dashboard'>
-                {workout.map(data =>
-                <div key={Date.now()}className="cardContainer">
-                <h1 className="cardTitle">{data[1].date}</h1>
-                  {data.map(nestedData =>
-                    <WorkoutCard
-                    key={nestedData.id}
-                    data={nestedData}/>
-                  )}
-                  </div> 
+  return(
+    <>
+    <TopNav />
+    <div className="siteContainer">
+      <div className='dashboard-page'>
+          <h1 className='title' >Welcome!</h1>
+          <NewWorkoutForm workoutData = {workoutData} fillInWorkout={fillInWorkout} submitWorkout={addWorkout}/>
+          <section className='dashboard'>
+              {workout.map(data =>
+              <div key={Date.now()}className="cardContainer">
+              <h1 className="cardTitle">{data[0].date}</h1>
+                {data.map(nestedData =>
+                  <WorkoutCard
+                  key={nestedData.id}
+                  data={nestedData}/>
                 )}
-            </section>
-        </div>
-        </div>
-      <Footer />
-      </>
-    )
+                </div> 
+              )}
+          </section>
+      </div>
+      </div>
+    <Footer />
+    </>
+  )
 }
 
 export default Dashboard
