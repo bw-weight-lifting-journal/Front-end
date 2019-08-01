@@ -9,12 +9,13 @@ function EditExercise() {
 
     const [userData, setUserData] = useState();
     const [exerciseType, setExerciseType] = useState('');
-    const [exercise, setExercise] = useState();
+    const [exercise, setExercise] = useState({ id: '', exerciseName: ''});
+    const [exerciseEdit, setExerciseEdit] = useState();
     const [toggle, setToggle] = useState(false);
-    // const [objectID, setObjectID] = useState();
-    let objectID = ''
+    const [objectID, setObjectID] = useState();
 
-    console.log('WORKOUT', objectID)
+    console.log('id', exercise.id)
+    console.log('name', exercise.exerciseName)
 
     useEffect(() => {
         if(exerciseType)
@@ -26,6 +27,26 @@ function EditExercise() {
             })
             .catch(err => console.log(err))
     }, [ exerciseType ]);
+
+    const editExercise = (event, objectID, exerciseType, exerciseEdit) => {
+        console.log('objectID', objectID)
+        console.log('exerciseType', exerciseType)
+        console.log('exerciseEdit', exerciseEdit)
+
+        event.preventDefault()
+        axiosWithAuth()
+            .put(`https://weightlifingjournalbackend.herokuapp.com/api/exercises/${exerciseType}/${objectID}`, exerciseEdit)
+            .then(res => {
+                console.log(res)
+                // props.history.push('/enterworkout')
+            })
+            .catch(err => console.log(err))
+    }
+
+    const changeHandler = e => {
+      e.preventDefault();
+      setExerciseEdit({exerciseName: e.target.value})
+    }
 
     const toggleFunc = (event, par) => {
         event.preventDefault();
@@ -43,15 +64,15 @@ function EditExercise() {
                 <option>Legs</option>
                 <option>Core</option>
             </select>
-            <select onChange={(e) => setExercise(e.target.value)} className={toggle ? 'hide' : ''}>
+            <select value='select' onChange={(e) => setExercise({id: e.target.value, exerciseName: e.target.key })} className={toggle ? 'hide' : ''}>
                 {!userData ? null : userData.map(user => {
-                    // setObjectID(user.id)
-                    objectID = user.id
-                    return <option key={user.id} >{user.exerciseName}</option>
+                    return <option key={user.id} value={user.id} name={user.exerciseName} >{user.exerciseName}</option>
                 })}
             </select>
-            <input className={!toggle ? 'hide' : ''}
+            <input 
+                className={!toggle ? 'hide' : ''}
                 value={exercise}
+                onChange={(e) => changeHandler(e)}
             />
             { !toggle 
                 ? 
@@ -59,7 +80,10 @@ function EditExercise() {
                     Edit Exercise
                 </button> 
                 : 
-                <button onClick={(event) => toggleFunc(event, false)}>
+                <button onClick={(event) => {
+                        toggleFunc(event, false)
+                        // editExercise(event, objectID, exerciseType, exerciseEdit)
+                    }}>
                     button
                 </button>
             }
