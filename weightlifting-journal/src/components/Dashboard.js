@@ -36,7 +36,7 @@ function Dashboard() {
             <section className='dashboard'>
                 {workout.map(data =>
                 <div key={Date.now()}className="cardContainer">
-                <h1>{data[1].date}</h1>
+                <h1 className="cardTitle">{data[1].date}</h1>
                   {data.map(nestedData =>
                     <WorkoutCard
                     key={nestedData.id}

@@ -7,12 +7,12 @@ const { data } = props;
   return (
     <Container className="exerciseCard">
         <CardBody className="exerciseCardContent">
-          <CardText>Type: {data.type}</CardText>
-          <CardText>Exercise: {data.workout}</CardText>
-          <CardText>Sets: {data.sets}</CardText>
-          <CardText>Reps: {data.reps}</CardText>
-          <CardText>Weight: {data.weight}</CardText>
-          <CardText>Difficulty: {data.difficulty}</CardText>
+          <CardText className="cardChild">Type: {data.type}</CardText>
+          <CardText className="cardChild">Exercise: {data.workout}</CardText>
+          <CardText className="cardChild">Sets: {data.sets}</CardText>
+          <CardText className="cardChild">Reps: {data.reps}</CardText>
+          <CardText className="cardChild">Weight: {data.weight}</CardText>
+          <CardText className="cardChild">Difficulty: {data.difficulty}</CardText>
         </CardBody>
     </Container>
   );
