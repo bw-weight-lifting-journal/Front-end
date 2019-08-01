@@ -1,14 +1,11 @@
 import React,{ useState, useEffect } from 'react'
-import TopNav from './navmenus/Nav';
-import Footer from './navmenus/Footer';
 import {axiosWithAuth }from '../axiosWithAuth';
-import { Link } from 'react-router-dom';
 
 import './NewWorkoutForm.scss'
 
 function NewWorkoutForm(props) {
 
-    const { submitWorkout } = props;
+    const { workoutData, fillInWorkout, submitWorkout } = props;
   
     const [userData, setUserData] = useState();
     const [workoutType, setWorkoutType] = useState('arms');
@@ -23,12 +20,11 @@ function NewWorkoutForm(props) {
       id: ''
     })
 
-    const [totalWorkout, setTotalWorkout] = useState([]);
-
     const handleChange = event => {
       setWork({...work, [event.target.name]: event.target.value })
       event.target.name === 'type' && setWorkoutType(event.target.value.toLowerCase())
     }
+
 
     const handleSubmit = event => {
       event.preventDefault();
@@ -41,16 +37,16 @@ function NewWorkoutForm(props) {
         date: '',
         exercise: '',
         type: '', 
-        id: Date.now()
+        id: ''
       })
     }
 
     const pushExercise = event => {
       event.preventDefault();
-      // setTotalWorkout([
-      //   ...totalWorkout,
-      //   submitWorkout(work)])
+      work.id = Date.now();
+      fillInWorkout(work)
     }
+
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -72,6 +68,31 @@ function NewWorkoutForm(props) {
         <div className='new-workout-page'>
             <h1 className='title'>New Workout</h1>
             <form onSubmit={handleSubmit} className='workout-form'>
+            <label className='form-label'>
+                    Type: <br />
+                    <select component='select' name='type' onChange={handleChange} value={work.type} className='difficulty'>
+                        <option>Arms</option>
+                        <option>Shoulders</option>
+                        <option>Back</option>
+                        <option>Chest</option>
+                        <option>Legs</option>
+                        <option>Core</option>
+                    </select>
+                </label>
+                <label className='form-label'>
+                    Exercise: <br />
+                    <select 
+                        component='select'
+                        className='workout'
+                        type='text'
+                        name='workout'
+                        value={work.workout}
+                        onChange={handleChange}
+
+                    >
+                        {!userData ? null : userData.map(user => <option key={user.exerciseName}>{user.exerciseName}</option>)}
+                    </select>
+                </label>
                 <label className='form-label'>
                     Sets: <br />
                     <input 
@@ -115,6 +136,7 @@ function NewWorkoutForm(props) {
                         <option value='5'>5</option>
                     </select>
                 </label>
+                {workoutData.length < 1 && 
                 <label className='form-label'>
                     Date: <br />
                     <input 
@@ -125,38 +147,12 @@ function NewWorkoutForm(props) {
                         onChange={handleChange}
 
                     />
-                </label>
-                <label className='form-label'>
-                    Type: <br />
-                    <select component='select' name='type' onChange={handleChange} value={work.type} className='difficulty'>
-                        <option>Arms</option>
-                        <option>Shoulders</option>
-                        <option>Back</option>
-                        <option>Chest</option>
-                        <option>Legs</option>
-                        <option>Core</option>
-                    </select>
-                </label>
-                <label className='form-label'>
-                    Exercise: <br />
-                    <select 
-                        component='select'
-                        className='workout'
-                        type='text'
-                        name='workout'
-                        value={work.workout}
-                        onChange={handleChange}
-
-                    >
-                        {!userData ? null : userData.map(user => <option>{user.exerciseName}</option>)}
-                    </select>
-                </label>
+                </label>}
           
                 <p className='buttons'>
                     <button type='reset' className='clear-btn'>Clear</button>
-                    <button className='clear-btn' onClick={() => pushExercise}>Add Exercise</button>
-                    <button className='add-btn' type='submit'>Submit Workout</button>
-
+                    <button className='clear-btn' onClick={pushExercise}>Add Exercise</button>
+                    {workoutData.length > 0 && <button className='add-btn' type='submit'>Submit Workout</button>}
                 </p>
             </form>
         </div>

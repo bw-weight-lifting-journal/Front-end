@@ -1,13 +1,12 @@
 import React from 'react';
-import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Container, CardBody, CardTitle, CardText } from 'reactstrap';
+import "./WorkoutCard.scss";
 
 export default function WorkoutCard(props) {
 const { data } = props;
   return (
-    <>
-      <Card key={Date.now()}>
-        <CardBody>
-          <CardTitle>{data.date}</CardTitle>
+    <Container className="exerciseCard">
+        <CardBody className="exerciseCardContent">
           <CardText>Type: {data.type}</CardText>
           <CardText>Exercise: {data.workout}</CardText>
           <CardText>Sets: {data.sets}</CardText>
@@ -15,7 +14,6 @@ const { data } = props;
           <CardText>Weight: {data.weight}</CardText>
           <CardText>Difficulty: {data.difficulty}</CardText>
         </CardBody>
-      </Card>
-    </>
+    </Container>
   );
 }

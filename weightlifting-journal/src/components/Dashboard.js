@@ -1,20 +1,30 @@
-import React,{ useState, useEffect } from 'react'
+import React,{ useState } from 'react'
 import TopNav from './navmenus/Nav';
 import Footer from './navmenus/Footer';
 import WorkoutCard from './WorkoutCard';
-// import T from './TESTFORM'
 import NewWorkoutForm from './NewWorkoutForm'
-import { Link as WorkoutLink, Route } from "react-router-dom";
 import './Dashboard.scss'
 
 function Dashboard() {
 
 
     const [workout, setWorkout] = useState([])
+    const [exercisesInWorkout, setExercisesInWorkout] = useState([])
+
+    console.log(exercisesInWorkout)
+    console.log(workout)
+
+    const fillInWorkout = work => {
+      setExercisesInWorkout([...exercisesInWorkout, work])
+    }
 
     const addWorkout = work => {
-      setWorkout([...workout, work])
+      setWorkout([...workout, exercisesInWorkout])
+      setExercisesInWorkout([]);
     }
+
+    const workoutData = exercisesInWorkout;
+
 
     return(
       <>
@@ -22,11 +32,17 @@ function Dashboard() {
       <div className="siteContainer">
         <div className='dashboard-page'>
             <h1 className='title' >Welcome!</h1>
-            <NewWorkoutForm submitWorkout={addWorkout}/>
+            <NewWorkoutForm workoutData = {workoutData} fillInWorkout={fillInWorkout} submitWorkout={addWorkout}/>
             <section className='dashboard'>
-                {workout.map(data => <WorkoutCard
-                    key={data.id}
-                    data={data}/>
+                {workout.map(data =>
+                <div key={Date.now()}className="cardContainer">
+                <h1>{data[1].date}</h1>
+                  {data.map(nestedData =>
+                    <WorkoutCard
+                    key={nestedData.id}
+                    data={nestedData}/>
+                  )}
+                  </div> 
                 )}
             </section>
         </div>

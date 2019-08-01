@@ -1,7 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom';
 import HomePage from './HomePage';
-import NewWorkoutForm from './NewWorkoutForm';
 import Dashboard from './Dashboard.js';
 import Signup from './Signup.js';
 import Login from './Login';

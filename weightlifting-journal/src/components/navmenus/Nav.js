@@ -41,11 +41,6 @@ export default class TopNav extends React.Component {
                 Track Workout
                 </WebsiteNavLink>
               </NavItem>
-              <NavItem>
-                <WebsiteNavLink className="nav-link" to="/dashboard">
-                Progress Shots
-                </WebsiteNavLink>
-              </NavItem>
             </Nav>
             <Nav className="ml-auto" navbar>
               <Button>

@@ -21,13 +21,13 @@ function MainButtonContainer() {
       content = "Making gains has become that much easier"
     />
     </div>
-    <WorkoutLink className="mainBtn" to="/login">
+    <div className="mainBtn">
     <MainButton 
       title = "Post Your Progress"
       content = "Upload your progress shots, see your body change in real-time"
-      arrow = "→"
+      arrow = "Coming Soon!"
     />
-    </WorkoutLink>
+    </div>
     </div>
     </Jumbotron>
   );
