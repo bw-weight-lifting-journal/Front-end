@@ -7,6 +7,8 @@ import './NewWorkoutForm.scss'
 function NewWorkoutForm(props) {
 
     const { workoutData, fillInWorkout, submitWorkout } = props;
+
+    console.log(workoutData)
   
     const [userData, setUserData] = useState();
     const [workoutType, setWorkoutType] = useState('arms');
@@ -150,11 +152,14 @@ function NewWorkoutForm(props) {
                     />
                 </label>}
           
-                <p className='buttons'>
+                <div className='buttons'>
+                    <div className="exerciseCounter">Exercises in current workout:
+                    {workoutData.map(exercise => <div key={exercise.id}>{exercise.workout}</div>)}
+                    </div>
                     <button type='reset' className='clear-btn'>Clear</button>
                     <button className='clear-btn' onClick={pushExercise}>Add Exercise</button>
                     {workoutData.length > 0 && <button className='add-btn' type='submit'>Submit Workout</button>}
-                </p>
+                </div>
             </form>
         </div>
         </div>
