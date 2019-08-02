@@ -3,8 +3,8 @@ import TopNav from './navmenus/Nav';
 import Footer from './navmenus/Footer';
 import WorkoutCard from './WorkoutCard';
 import NewWorkoutForm from './NewWorkoutForm'
+import EditExerciseForm from './EditExerciseForm'
 import './Dashboard.scss'
-import EditExerciseForm from './EditExerciseForm';
 
 function Dashboard() {
 
@@ -12,8 +12,6 @@ function Dashboard() {
   const [workout, setWorkout] = useState([])
   const [exercisesInWorkout, setExercisesInWorkout] = useState([])
 
-  console.log('exercises in workout', exercisesInWorkout)
-  console.log('workout', workout)
 
   const fillInWorkout = work => {
     setExercisesInWorkout([...exercisesInWorkout, work])
@@ -21,12 +19,13 @@ function Dashboard() {
 
   const addWorkout = work => {
     setWorkout([...workout, exercisesInWorkout])
+    localStorage.setItem("workouts", JSON.stringify([...workout, exercisesInWorkout]))
     setExercisesInWorkout([]);
   }
 
   const workoutData = exercisesInWorkout;
-  console.log(workoutData)
 
+  const workouts = localStorage.getItem("workouts");
 
   return(
     <>
@@ -34,10 +33,10 @@ function Dashboard() {
     <div className="siteContainer">
       <div className='dashboard-page'>
           <h1 className='title' >Welcome!</h1>
-          <NewWorkoutForm workoutData = {workoutData} fillInWorkout={fillInWorkout} submitWorkout={addWorkout} />
+          <NewWorkoutForm workoutData = {workoutData} fillInWorkout={fillInWorkout} submitWorkout={addWorkout}/>
           <section className='dashboard'>
-              {workout.map(data =>
-              <div key={Date.now()}className="cardContainer">
+              {workouts && JSON.parse(workouts).map(data =>
+              <div key={data.map(d => d.id)}className="cardContainer">
               <h1 className="cardTitle">{data[0].date}</h1>
                 {data.map(nestedData =>
                   <WorkoutCard
@@ -47,8 +46,8 @@ function Dashboard() {
                 </div> 
               )}
           </section>
+          <EditExerciseForm />
       </div>
-      <EditExerciseForm />
       </div>
     <Footer />
     </>

@@ -26,7 +26,15 @@ export default class TopNav extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
   render() {
+
+    let tkn = localStorage.getItem('token');
+
+    const deleteTkn = event => {
+      localStorage.removeItem('token');
+    }
+
     return (
       <>
         <Navbar color="light" light expand="md">
@@ -36,13 +44,34 @@ export default class TopNav extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="mr-auto" navbar>
+              {tkn ?
               <NavItem>
                 <WebsiteNavLink className="nav-link" to="/dashboard">
                 Track Workout
                 </WebsiteNavLink>
               </NavItem>
+              :
+              <NavItem>
+                <WebsiteNavLink className="nav-link" to="/login">
+                Track Workout
+                </WebsiteNavLink>
+              </NavItem>
+              }
             </Nav>
+            {tkn ? 
             <Nav className="ml-auto" navbar>
+            <Button>
+            <WebsiteNavLink 
+            className="signintext"
+            onClick={deleteTkn} 
+            to="/"
+            >
+              Log Out
+            </WebsiteNavLink>
+            </Button>
+          </Nav>
+           :
+          <Nav className="ml-auto" navbar>
               <Button>
               <WebsiteNavLink className="jointext" to="/signup">
                 Join Now
@@ -54,6 +83,7 @@ export default class TopNav extends React.Component {
               </WebsiteNavLink>
               </Button>
             </Nav>
+            }
           </Collapse>
         </Navbar>
       </>

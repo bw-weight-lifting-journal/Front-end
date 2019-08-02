@@ -1,3 +1,4 @@
+    
 .new-workout-page {
     margin: 60px 30px;
 
@@ -62,6 +63,13 @@
         text-align: right;
         margin: 30px 40px 0;
 
+        .exerciseCounter {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+          font-style: italic;
+          font-weight: bold;
+        }
+
         .clear-btn {
             font-size: 1.6rem;
             padding: 5px 25px;
@@ -71,6 +79,7 @@
             border: 2px solid #1F7EBF;
             color: #1F7EBF;
             border-radius: 3px;
+            margin-bottom: 2rem;
         }
     
         .add-btn {
@@ -81,6 +90,7 @@
             color: white;
             border: none;
             border-radius: 3px;
+            margin-bottom: 2rem;
         }
     }
 }

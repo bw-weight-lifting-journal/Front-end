@@ -8,6 +8,13 @@ import MainButtonContainer from './contentcontainers/MainbuttonsContainer';
 import HeroImage from './contentcontainers/HeroImage';
 
 function HomePage() {
+
+  let tkn = localStorage.getItem('token');
+
+  const deleteTkn = event => {
+    localStorage.removeItem('token');
+  }
+  
   return (
     <>
       <TopNav />

@@ -1,10 +1,9 @@
 import React from 'react';
-import { Container, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Container, CardBody, CardText } from 'reactstrap';
 import "./WorkoutCard.scss";
 
 export default function WorkoutCard(props) {
 const { data } = props;
-
   return (
     <Container className="exerciseCard">
         <CardBody className="exerciseCardContent">
