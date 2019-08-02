@@ -11,7 +11,7 @@ const Signup = () => {
       <>
       <TopNav />
         <div>
-            <h1>Weight Lifting Journal</h1>
+            <h1 className="signup-welcome">Welcome to forLife Fitness</h1>
             <Form>
                 <label>First Name</label>
                 <Field 
