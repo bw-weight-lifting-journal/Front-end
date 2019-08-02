@@ -5,7 +5,7 @@ import './EditExercise.scss'
 
 function EditExercise() {
 
-    const token = localStorage.getItem('token');
+    // const token = localStorage.getItem('token');
 
     const [userData, setUserData] = useState();
     const [exerciseType, setExerciseType] = useState('');
@@ -14,8 +14,9 @@ function EditExercise() {
     const [toggle, setToggle] = useState(false);
     const [objectID, setObjectID] = useState();
 
-    console.log('id', exercise.id)
-    console.log('name', exercise.exerciseName)
+    // console.log('id', exercise.id)
+    // console.log('name', exercise.exerciseName)
+    console.log('testing', objectID, exerciseType, exerciseEdit)
 
     useEffect(() => {
         if(exerciseType)
@@ -64,14 +65,12 @@ function EditExercise() {
                 <option>Legs</option>
                 <option>Core</option>
             </select>
-            <select value='select' onChange={(e) => setExercise({id: e.target.value, exerciseName: e.target.key })} className={toggle ? 'hide' : ''}>
-                {!userData ? null : userData.map(user => {
-                    return <option key={user.id} value={user.id} name={user.exerciseName} >{user.exerciseName}</option>
-                })}
+            <select onChange={(e) => setObjectID(e.target.value)} className={toggle ? 'hide' : ''}>
+                {!userData ? null : userData.map(user => <option key={user.id} value={user.id} >{user.exerciseName}</option>)}
             </select>
             <input 
                 className={!toggle ? 'hide' : ''}
-                value={exercise}
+                // value={exercise}
                 onChange={(e) => changeHandler(e)}
             />
             { !toggle 
@@ -82,7 +81,7 @@ function EditExercise() {
                 : 
                 <button onClick={(event) => {
                         toggleFunc(event, false)
-                        // editExercise(event, objectID, exerciseType, exerciseEdit)
+                        editExercise(event, objectID, exerciseType, exerciseEdit)
                     }}>
                     button
                 </button>

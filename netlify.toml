@@ -1,6 +1,6 @@
 [build]
-  base = 'weightlifting-journal'
-  publish = "weightlifting-journal/build"
+  base = 'weightlifting-journal/'
+  publish = "weightlifting-journal/build/"
 
   [[redirects]]
     from = "/*"

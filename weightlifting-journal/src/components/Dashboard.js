@@ -3,6 +3,7 @@ import TopNav from './navmenus/Nav';
 import Footer from './navmenus/Footer';
 import WorkoutCard from './WorkoutCard';
 import NewWorkoutForm from './NewWorkoutForm'
+import EditExerciseForm from './EditExerciseForm'
 import './Dashboard.scss'
 
 function Dashboard() {
@@ -45,6 +46,7 @@ function Dashboard() {
                 </div> 
               )}
           </section>
+          <EditExerciseForm />
       </div>
       </div>
     <Footer />
